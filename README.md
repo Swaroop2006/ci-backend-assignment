@@ -1,68 +1,17 @@
-# CodeIgniter 4 Application Starter
+This project is developed as part of an assignment using the CodeIgniter 4 framework. The main objective of the project is to implement a backend system with user authentication and teacher management modules. The system is fully database-driven and uses MySQL for persistent storage. It is designed to demonstrate backend development concepts including MVC architecture, authentication, database handling, and project setup.
 
-## What is CodeIgniter?
+The application is built using PHP 8+ with CodeIgniter 4. Composer is used for dependency management and phpMyAdmin is used to manage the database. The project has been structured in the standard format provided by CodeIgniter, which separates the application logic, configuration, and public-facing files. This ensures clean code organization and scalability.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+The project provides two main modules. The first module is the authentication system, where users can register and manage their accounts. User details such as email, first name, last name, password, and account creation time are stored in the database. The second module is the teacher management system, which links teacher profiles to registered users. Each teacher record stores details such as the associated user, university name, gender, and the year the teacher joined. The relationship between users and teachers is maintained through foreign keys in the database, ensuring data consistency.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+The database has been designed with two tables: auth_user and teachers. The auth_user table contains information related to users, while the teachers table stores details about teachers and references the auth_user table through a foreign key relationship. A database export file is provided in the repository so that the schema can be imported directly without manually creating the tables.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+To run the project, first clone the repository from GitHub. Once inside the project folder, install the dependencies using Composer. Next, set up the database in MySQL by creating a database (for example, ci_project) and importing the provided SQL file from the database folder. After the database has been imported, the environment configuration file (.env) needs to be updated with the correct database connection details such as hostname, database name, username, password, and driver.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+After the database and configuration have been set up, the project can be started using the built-in CodeIgniter command. Running php spark serve will start the local development server, and the project can then be accessed in the browser at http://localhost:8080. The application will load from the public directory, which serves as the entry point for the system.
 
-## Installation & updates
+The project repository has been structured into several important folders. The app folder contains the main application logic, including controllers, models, and views. The public folder contains the public entry point (index.php) and can also hold assets like CSS and JavaScript. The writable folder stores logs and cached files, while the tests folder includes PHPUnit test files. A database folder has been added to include the SQL export file so that the database can be quickly set up. The repository also contains the composer.json file for dependencies, the .env file for environment variables, and the spark CLI tool for running CodeIgniter commands.
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+This project demonstrates the use of CodeIgniter for backend development and provides a simple but effective example of how to implement authentication and teacher management with database support. The repository includes both the source code and the database export file, along with setup instructions in this README. This ensures that the evaluator can easily clone the repository, set up the environment, and run the project without additional configuration.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
-
-## Setup
-
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
-
-## Important Change with index.php
-
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 8.1 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+The solution is submitted through this GitHub repository as required. The project contains clear instructions, a database export file, and a functional backend implementation. The UI can be extended creatively on top of this backend if needed.
